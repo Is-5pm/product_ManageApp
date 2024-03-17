@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.ssg.product_manageapp.mapper.ProductMapper">
+    <insert id="insert">
+        INSERT INTO tbl_product(pname, price, pamount) VALUES (#{pname}, #{price}, #{pamount})
+    </insert>
+
+    <select id="selectAll" resultType="org.ssg.product_manageapp.domain.ProductVO">
+        SELECT * FROM tbl_product ORDER BY pno DESC
+    </select>
+
+    <select id="selectOne" resultType="org.ssg.product_manageapp.domain.ProductVO">
+        SELECT * FROM tbl_product WHERE pno = #{pno}
+    </select>
+
+    <update id="update">
+        UPDATE tbl_product SET pname = #{pname}, price = #{price}, pamount = #{pamount} WHERE pno = #{pno}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM tbl_product WHERE pno = #{pno}
+    </delete>
+
+</mapper>
